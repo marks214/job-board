@@ -10,7 +10,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     if @job.nil?
-      redirect_to '/jobs'
+      redirect_to jobs_path
       return
     end
   end
