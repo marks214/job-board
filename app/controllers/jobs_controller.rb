@@ -56,5 +56,19 @@ class JobsController < ApplicationController
     end
   end
 
+  def delete
+    # remove this job from the database
+    job = Job.find(params[:id])
+    # local variable, not instance variable, we don't need to access this in a view
+    if job.destroy
+      # Success - go back to index page
+      redirect_to jobs_path
+    else
+      # unsuccessful - show an error
+
+    end
+
+  end
+
 end
 
