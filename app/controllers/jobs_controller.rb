@@ -19,5 +19,22 @@ class JobsController < ApplicationController
     @job = Job.new
   end
 
+  def create
+    @job = Job.new(
+      title: params[:job][:title],
+      description: params[:job][:description],
+      company: params[:job][:company]
+    )
+    @job.save
+
+    if @job.save
+      # success!
+      redirect_to jobs_path
+    else
+      # failures
+      render :new
+    end
+  end
+
 end
 
