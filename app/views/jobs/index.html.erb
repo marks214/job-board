@@ -1,8 +1,10 @@
 <h3>Jobs</h3>
-""
+
 <% @jobs.each do |job| %>
   <div class="job">
-    <strong><%= job.title %></strong>
+    <strong>
+      <%= link_to job.title, job_path(job.id) %>
+    </strong>
     <%= job.description  %>
   </div>
 
